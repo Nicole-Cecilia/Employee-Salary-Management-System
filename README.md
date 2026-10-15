@@ -108,6 +108,15 @@ flowchart TD
 erDiagram
     dept_info ||--o{ emp_info : "管辖"
     emp_info ||--|| jobtype_rule : "按工种+等级匹配"
+    emp_info ||--|| emp_login : "拥有"
+    emp_info ||--o{ ea1 : "上班打卡"
+    emp_info ||--o{ ea2 : "下班打卡"
+    emp_info ||--o{ el : "请假"
+    emp_info ||--o{ attendance : "月度考勤"
+    emp_info ||--o{ overtime : "月度加班"
+    emp_info ||--o{ msalary : "月度薪资"
+    emp_info ||--o{ bonus : "年终奖"
+
     admin_login {
         string admin_id PK
         string admin_pass
@@ -115,7 +124,7 @@ erDiagram
     dept_info {
         string Dno PK
         string Dname
-        string Eno FK
+        string Eno
     }
     emp_info {
         string Eno PK
@@ -124,7 +133,7 @@ erDiagram
         date Ebirth
         string Etitle
         string Egrade
-        string Dno FK
+        string Dno
         date Ehire_date
         decimal Ede
     }
@@ -134,37 +143,37 @@ erDiagram
         decimal baseS
     }
     emp_login {
-        string Eno PK FK
+        string Eno PK
         string Epass
     }
     ea1 {
-        string Eno PK FK
+        string Eno PK
         datetime Atime1 PK
     }
     ea2 {
-        string Eno PK FK
+        string Eno PK
         datetime Atime2 PK
     }
     el {
-        string Eno PK FK
+        string Eno PK
         date Ldate PK
     }
     attendance {
-        string Eno PK FK
+        string Eno PK
         string Amonth PK
         int late
         int early
         int absent
     }
     overtime {
-        string Eno PK FK
+        string Eno PK
         string Omonth PK
         decimal wdhour
         decimal wehour
         decimal hlhour
     }
     msalary {
-        string Eno PK FK
+        string Eno PK
         string Smonth PK
         decimal baseS
         decimal Oall
@@ -177,7 +186,7 @@ erDiagram
         decimal aa_tax
     }
     bonus {
-        string Eno PK FK
+        string Eno PK
         string Byear PK
         decimal bonus
     }
@@ -187,16 +196,6 @@ erDiagram
         tinyint is_weekend
         tinyint is_holiday
     }
-
-    emp_info ||--o{ emp_login : "拥有"
-    emp_info ||--o{ ea1 : "打卡"
-    emp_info ||--o{ ea2 : "打卡"
-    emp_info ||--o{ el : "请假"
-    emp_info ||--o{ attendance : "月度统计"
-    emp_info ||--o{ overtime : "月度统计"
-    emp_info ||--o{ msalary : "月度薪资"
-    emp_info ||--o{ bonus : "年终奖"
-    tyday ||--o{ attendance : "按工作日计算"
 ```
 
 ### 表说明
