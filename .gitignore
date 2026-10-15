@@ -1,0 +1,45 @@
+## Visual Studio
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+[Dd]ebugPublic/
+[Rr]eleaseUWP/
+*.user
+*.suo
+*.userprefs
+*.userosscache
+*.sln.docstates
+*.user
+
+## Rider
+.idea/
+.idea/**
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]ogos/
+
+## Visual Studio 2015/2017 cache/
+.vs/
+*.rsuser
+
+## NuGet Packages
+*.nupkg
+*.snupkg
+packages/
+*.nuget.props
+*.nuget.targets
+
+## Others
+*.swp
+*.swo
+*~
+Thumbs.db
+ehthumbs.db
+Desktop.ini
